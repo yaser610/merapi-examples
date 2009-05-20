@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+////////////////////////////////////////////////////////////////////////////////
+//
+//  This program is free software; you can redistribute it and/or modify 
+//  it under the terms of the GNU General Public License as published by the 
+//  Free Software Foundation; either version 3 of the License, or (at your 
+//  option) any later version.
+//
+//  This program is distributed in the hope that it will be useful, but 
+//  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
+//  or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License 
+//  for more details.
+//
+//  You should have received a copy of the GNU General Public License along 
+//  with this program; if not, see <http://www.gnu.org/licenses>.
+//
+////////////////////////////////////////////////////////////////////////////////
+-->
+<mx:WindowedApplication 
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:merapiproject="http://merapiproject.net/2009"
+  xmlns:messages="merapi.examples.helloworld.messages.*"
+  layout="vertical">
+	
+	<!-- ======================================================================================= -->
+	<!--	Controller																			 -->
+	<!-- ======================================================================================= -->
+	
+	<!-- ====  helloWorldMessage : The message sent accross the bridge  ======================== -->
+	<messages:HelloWorldMessage id="helloWorldMessage" helloText="Hello World!!!" />
+
+	<!-- ====  helloWorldHandler : The message handler for the HelloWorld.HELLO message type  == -->
+	<merapiproject:MessageHandler id="helloWorldHandler" 
+	  type="{ HelloWorldMessage.HELLO }" dataField="helloText" /> 
+
+
+	<!-- ======================================================================================= -->
+	<!--	View																				 -->
+	<!-- ======================================================================================= -->
+	
+	<mx:Button label="Say Hello" click="helloWorldMessage.send()" />
+	<mx:Label text="{ helloWorldHandler.data }" />
+	
+</mx:WindowedApplication>
