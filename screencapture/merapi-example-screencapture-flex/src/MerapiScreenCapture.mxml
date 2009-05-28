@@ -8,6 +8,12 @@
   layout="absolute" horizontalCenter="0" 
   verticalScrollPolicy="off"
   verticalCenter="0" width="225" height="60" xmlns:handlers="merapi.examples.screencapture.handlers.*">
+	<!--
+	Screen Capture example was written by Rich Tretola
+	http://www.twitter.com/richtretola
+	http://blog.everythingflex.com
+	http://www.happytoad.com
+	-->
 	<mx:states>
 		<mx:State name="withshots">
 			<mx:AddChild position="lastChild">
