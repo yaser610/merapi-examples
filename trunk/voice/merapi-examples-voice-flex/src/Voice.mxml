@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication 
+  title="merapi voice"
+  xmlns:mx="http://www.adobe.com/2006/mxml" 
+  xmlns:merapiproject="http://merapiproject.net/2009"
+  xmlns:messages="merapi.examples.voice.messages.*"
+  verticalCenter="0" width="250" height="275" 
+  xmlns:handlers="merapi.examples.voice.handlers.*">
+	<!--
+	Voice example was written by Rich Tretola
+	http://www.twitter.com/richtretola
+	http://blog.everythingflex.com
+	http://www.happytoad.com
+	-->
+	
+	<!-- ====  VoiceMessage : The message sent accross the bridge  ======================== -->
+	<messages:VoiceMessage id="voiceMessage" text="{sayItText.text}" />
+
+	<!-- ====  screenCaptureHandler : The message handler for the VoiceMessage.SAY_IT message type  == -->
+	<handlers:VoiceHandler id="voiceHandler" 
+		type="{ VoiceMessage.SAY_IT }" /> 
+	  
+	<mx:Script>
+  		<![CDATA[
+  			import merapi.messages.IMessage;
+  			import merapi.messages.Message;
+  			
+  			  			
+  			private function sayIt():void{
+  				/*
+  				 * Call send() method to send the message to Java
+  				 */
+  				voiceMessage.send();
+  			}
+
+  		]]>
+	</mx:Script>
+	<mx:Label text="Enter some text below"/>
+	<mx:TextArea id="sayItText" height="150" width="200">
+		<mx:text>Hello from Merapi, this example was written 
+		by Rich Tretola from EverythingFlex.com</mx:text>
+	</mx:TextArea>
+	<mx:Button click="sayIt()" label="Say It" horizontalCenter="0" y="10"/>
+</mx:WindowedApplication>
