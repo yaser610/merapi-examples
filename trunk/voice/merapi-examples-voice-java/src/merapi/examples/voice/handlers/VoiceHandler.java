@@ -15,6 +15,15 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+////////////////////////////////////////////////////////////////////////////////
+//
+// Voice example was written by Rich Tretola
+// http://www.twitter.com/richtretola
+// http://blog.everythingflex.com
+// http://www.happytoad.com
+//
+////////////////////////////////////////////////////////////////////////////////
+
 package merapi.examples.voice.handlers;
 
 import com.sun.speech.freetts.Voice;
@@ -47,7 +56,7 @@ public class VoiceHandler extends MessageHandler
     //--------------------------------------------------------------------------
 
     /**
-     *  Handles the ScreenCaptureMessage.TAKE_SCREEN_SHOT message type.
+     *  Handles the VoiceMessage.SAY_IT message type.
      */ 
     public void handleMessage( IMessage message )
     {
