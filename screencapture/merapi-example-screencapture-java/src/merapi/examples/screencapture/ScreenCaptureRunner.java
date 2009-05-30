@@ -38,7 +38,7 @@ public class ScreenCaptureRunner
     //--------------------------------------------------------------------------
     
     /**
-     *  The main method that starts the Bridge and instantiates the HelloWorldHandler instance.
+     *  The main method that starts the Bridge and instantiates the ScreenCaptureHandler instance.
      */
     public static void main( String[] args )
     {
