@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Window xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" 
 	width="800" height="600" title="{imageSource}">
+	<!--
+	Screen Capture example was written by Rich Tretola
+	http://www.twitter.com/richtretola
+	http://blog.everythingflex.com
+	http://www.happytoad.com
+	-->
 	<mx:Script>
 		<![CDATA[
 			/*
