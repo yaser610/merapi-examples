@@ -4,8 +4,7 @@
   xmlns:mx="http://www.adobe.com/2006/mxml" 
   xmlns:merapiproject="http://merapiproject.net/2009"
   xmlns:messages="merapi.examples.voice.messages.*"
-  verticalCenter="0" width="250" height="275" 
-  xmlns:handlers="merapi.examples.voice.handlers.*">
+  verticalCenter="0" width="250" height="275">
 	<!--
 	Voice example was written by Rich Tretola
 	http://www.twitter.com/richtretola
@@ -15,10 +14,6 @@
 	
 	<!-- ====  VoiceMessage : The message sent accross the bridge  ======================== -->
 	<messages:VoiceMessage id="voiceMessage" text="{sayItText.text}" />
-
-	<!-- ====  screenCaptureHandler : The message handler for the VoiceMessage.SAY_IT message type  == -->
-	<handlers:VoiceHandler id="voiceHandler" 
-		type="{ VoiceMessage.SAY_IT }" /> 
 	  
 	<mx:Script>
   		<![CDATA[
@@ -38,7 +33,7 @@
 	<mx:Label text="Enter some text below"/>
 	<mx:TextArea id="sayItText" height="150" width="200">
 		<mx:text>Hello from Merapi, this example was written 
-		by Rich Tretola from EverythingFlex.com</mx:text>
+		by Rich Tretola from EverythingFlex dot com</mx:text>
 	</mx:TextArea>
 	<mx:Button click="sayIt()" label="Say It" horizontalCenter="0" y="10"/>
 </mx:WindowedApplication>
