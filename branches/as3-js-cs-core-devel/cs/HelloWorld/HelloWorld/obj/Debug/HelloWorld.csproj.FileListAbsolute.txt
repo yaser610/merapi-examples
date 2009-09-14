@@ -1,8 +1,0 @@
-Z:\dev\os\merapi\os\examples\svn\branches\as3-js-cs-core-devel\cs\HelloWorld\HelloWorld\obj\Debug\ResolveAssemblyReference.cache
-Z:\dev\os\merapi\os\examples\svn\branches\as3-js-cs-core-devel\cs\HelloWorld\HelloWorld\bin\Debug\HelloWorld.exe
-Z:\dev\os\merapi\os\examples\svn\branches\as3-js-cs-core-devel\cs\HelloWorld\HelloWorld\bin\Debug\HelloWorld.pdb
-Z:\dev\os\merapi\os\examples\svn\branches\as3-js-cs-core-devel\cs\HelloWorld\HelloWorld\bin\Debug\FluorineFx.dll
-Z:\dev\os\merapi\os\examples\svn\branches\as3-js-cs-core-devel\cs\HelloWorld\HelloWorld\bin\Debug\log4net.dll
-Z:\dev\os\merapi\os\examples\svn\branches\as3-js-cs-core-devel\cs\HelloWorld\HelloWorld\bin\Debug\merapi-core-cs.dll
-Z:\dev\os\merapi\os\examples\svn\branches\as3-js-cs-core-devel\cs\HelloWorld\HelloWorld\obj\Debug\HelloWorld.exe
-Z:\dev\os\merapi\os\examples\svn\branches\as3-js-cs-core-devel\cs\HelloWorld\HelloWorld\obj\Debug\HelloWorld.pdb
