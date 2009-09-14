@@ -21,17 +21,17 @@
   xmlns:mx="http://www.adobe.com/2006/mxml" 
   xmlns:merapiproject="http://merapiproject.net/2009"
   xmlns:messages="merapi.examples.helloworld.messages.*"
-  layout="vertical">
+  layout="vertical" xmlns:mxml="merapi.handlers.mxml.*">
 	
 	<!-- ======================================================================================= -->
 	<!--	Controller																			 -->
 	<!-- ======================================================================================= -->
 	
-	<!-- ====  helloWorldMessage : The message sent accross the bridge  ======================== -->
+	<!-- ====	  helloWorldMessage : The message sent accross the bridge  ======================== -->
 	<messages:HelloWorldMessage id="helloWorldMessage" helloText="Hello World!!!" />
 
 	<!-- ====  helloWorldHandler : The message handler for the HelloWorld.HELLO message type  == -->
-	<merapiproject:MessageHandler id="helloWorldHandler" 
+	<mxml:MessageHandler id="helloWorldHandler" 
 	  type="{ HelloWorldMessage.HELLO }" dataField="helloText" /> 
 
 

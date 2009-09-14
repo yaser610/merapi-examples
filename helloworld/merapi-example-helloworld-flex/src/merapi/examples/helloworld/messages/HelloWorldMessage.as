@@ -18,9 +18,10 @@
 package merapi.examples.helloworld.messages
 {
 
+import flash.net.registerClassAlias;
+
 import merapi.messages.Message;
 
-[RemoteClass( alias="merapi.examples.helloworld.messages.HelloWorldMessage" )]
 /**
  *  The <code>HelloWorldMessage</code> class extends <code>Message</code> as an example of a 
  *  custom Merapi message.
@@ -29,6 +30,10 @@ import merapi.messages.Message;
  */
 public class HelloWorldMessage extends Message
 {
+	//  Needed for sending typed instances from Flash -> Java as Flash doesn't parse 
+	//  the RemoteClass meta tag
+	{ registerClassAlias( "merapi.examples.helloworld.messages.HelloWorldMessage", HelloWorldMessage ); }
+	
     //--------------------------------------------------------------------------
     //
     //  Constants
