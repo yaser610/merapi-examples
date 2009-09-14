@@ -1,0 +1,10 @@
+Z:\dev\os\merapi\os\examples\svn\branches\as3-js-cs-core-devel\cs\HelloWorld\HelloWorld\bin\Release\log4net.config
+Z:\dev\os\merapi\os\examples\svn\branches\as3-js-cs-core-devel\cs\HelloWorld\HelloWorld\bin\Release\HelloWorld.exe
+Z:\dev\os\merapi\os\examples\svn\branches\as3-js-cs-core-devel\cs\HelloWorld\HelloWorld\bin\Release\HelloWorld.pdb
+Z:\dev\os\merapi\os\examples\svn\branches\as3-js-cs-core-devel\cs\HelloWorld\HelloWorld\bin\Release\FluorineFx.dll
+Z:\dev\os\merapi\os\examples\svn\branches\as3-js-cs-core-devel\cs\HelloWorld\HelloWorld\bin\Release\log4net.dll
+Z:\dev\os\merapi\os\examples\svn\branches\as3-js-cs-core-devel\cs\HelloWorld\HelloWorld\bin\Release\merapi-core-cs.dll
+Z:\dev\os\merapi\os\examples\svn\branches\as3-js-cs-core-devel\cs\HelloWorld\HelloWorld\bin\Release\merapi-core-cs.pdb
+Z:\dev\os\merapi\os\examples\svn\branches\as3-js-cs-core-devel\cs\HelloWorld\HelloWorld\obj\Release\ResolveAssemblyReference.cache
+Z:\dev\os\merapi\os\examples\svn\branches\as3-js-cs-core-devel\cs\HelloWorld\HelloWorld\obj\Release\HelloWorld.exe
+Z:\dev\os\merapi\os\examples\svn\branches\as3-js-cs-core-devel\cs\HelloWorld\HelloWorld\obj\Release\HelloWorld.pdb
