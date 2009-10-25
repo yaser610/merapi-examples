@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="css/csharp.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<!-- code formatted by http://manoli.net/csharpformat/ -->
+<pre class="csharpcode">
+<span class="rem">////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="rem">//</span>
+<span class="rem">//  This program is free software; you can redistribute it and/or modify </span>
+<span class="rem">//  it under the terms of the GNU Lesser General Public License as published </span>
+<span class="rem">//  by the Free Software Foundation; either version 3 of the License, or (at </span>
+<span class="rem">//  your option) any later version.</span>
+<span class="rem">//</span>
+<span class="rem">//  This program is distributed in the hope that it will be useful, but </span>
+<span class="rem">//  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY </span>
+<span class="rem">//  or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public </span>
+<span class="rem">//  License for more details.</span>
+<span class="rem">//</span>
+<span class="rem">//  You should have received a copy of the GNU Lesser General Public License </span>
+<span class="rem">//  along with this program; if not, see &lt;http://www.gnu.org/copyleft/lesser.html&gt;.</span>
+<span class="rem">//</span>
+<span class="rem">////////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="kwrd">using</span> merapi.messages;
+<span class="kwrd">using</span> System;
+
+<span class="kwrd">namespace</span> merapi.examples.excel.messages
+{
+    <span class="rem">/**</span>
+<span class="rem">     *  The ExcelMessage provides notifications about udpates from Excel</span>
+<span class="rem">     *  or requests to Excel via Flex.</span>
+<span class="rem">     *  </span>
+<span class="rem">     *  @author Adam Flater</span>
+<span class="rem">     */</span>
+    <span class="kwrd">class</span> ExcelMessage : Message
+    {
+        <span class="rem">//--------------------------------------------------------------------------</span>
+        <span class="rem">//</span>
+        <span class="rem">//  Constants</span>
+        <span class="rem">//</span>
+        <span class="rem">//--------------------------------------------------------------------------</span>
+
+        <span class="rem">/**</span>
+<span class="rem">         *  The cell update type notifies when a cell's value has changed.</span>
+<span class="rem">         */</span>
+        <span class="kwrd">public</span> <span class="kwrd">const</span> String CELL_UPDATE = <span class="str">"cellUpdate"</span>;
+
+        <span class="rem">/**</span>
+<span class="rem">         *  The edit in Excel type notifies the excel app to edit the contents</span>
+<span class="rem">         *  of a DataGrid in Excel.</span>
+<span class="rem">         */</span>
+        <span class="kwrd">public</span> <span class="kwrd">const</span> String EDIT_IN_EXCEL = <span class="str">"editInExcel"</span>;
+
+
+        <span class="rem">//--------------------------------------------------------------------------</span>
+        <span class="rem">//</span>
+        <span class="rem">//  Properties</span>
+        <span class="rem">//</span>
+        <span class="rem">//--------------------------------------------------------------------------</span>
+
+        <span class="rem">/**</span>
+<span class="rem">         *  A set of cell data to edit in Excel.</span>
+<span class="rem">         */</span>
+        <span class="kwrd">public</span> <span class="kwrd">object</span>[] cellData;
+
+        <span class="rem">/** </span>
+<span class="rem">         *  The row of the cell that was updated.</span>
+<span class="rem">         */</span>
+        <span class="kwrd">public</span> <span class="kwrd">int</span> row = -1;
+
+        <span class="rem">/** </span>
+<span class="rem">         *  The column of the cell that was updated.</span>
+<span class="rem">         */</span>
+        <span class="kwrd">public</span> <span class="kwrd">int</span> col = -1;
+
+        <span class="rem">/**</span>
+<span class="rem">         *  The value of the cell that was updated.</span>
+<span class="rem">         */</span>
+        <span class="kwrd">public</span> Object val = <span class="kwrd">null</span>;
+    }
+}
+</pre>
+</body>
+</html>
