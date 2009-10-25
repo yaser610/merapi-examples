@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="css/csharp.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<!-- code formatted by http://manoli.net/csharpformat/ -->
+<pre class="csharpcode">
+<span class="rem">////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="rem">//</span>
+<span class="rem">//  This program is free software; you can redistribute it and/or modify </span>
+<span class="rem">//  it under the terms of the GNU Lesser General Public License as published </span>
+<span class="rem">//  by the Free Software Foundation; either version 3 of the License, or (at </span>
+<span class="rem">//  your option) any later version.</span>
+<span class="rem">//</span>
+<span class="rem">//  This program is distributed in the hope that it will be useful, but </span>
+<span class="rem">//  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY </span>
+<span class="rem">//  or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public </span>
+<span class="rem">//  License for more details.</span>
+<span class="rem">//</span>
+<span class="rem">//  You should have received a copy of the GNU Lesser General Public License </span>
+<span class="rem">//  along with this program; if not, see &lt;http://www.gnu.org/copyleft/lesser.html&gt;.</span>
+<span class="rem">//</span>
+<span class="rem">////////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="kwrd">using</span> merapi.examples.excel.messages;
+<span class="kwrd">using</span> merapi.messages;
+<span class="kwrd">using</span> merapi.examples.excel;
+<span class="kwrd">using</span> Merapi.Handlers;
+<span class="kwrd">using</span> System;
+
+<span class="kwrd">namespace</span> merapi.example.excel.handlers
+{
+    <span class="rem">/**</span>
+<span class="rem">     *  Handles edit in excel messages from Flex</span>
+<span class="rem">     *  </span>
+<span class="rem">     *  @author Adam Flater</span>
+<span class="rem">     */</span>
+    <span class="kwrd">class</span> ExcelMessageHandler : MessageHandler
+    {
+        <span class="rem">//--------------------------------------------------------------------------</span>
+        <span class="rem">//</span>
+        <span class="rem">//  Constructor</span>
+        <span class="rem">//</span>
+        <span class="rem">//--------------------------------------------------------------------------</span>
+
+        <span class="rem">/**</span>
+<span class="rem">         *  Constructor.</span>
+<span class="rem">         */</span>
+        <span class="kwrd">public</span> ExcelMessageHandler()
+        {
+            <span class="rem">//  Listen for editInExcel messages</span>
+            AddMessageType(ExcelMessage.EDIT_IN_EXCEL);
+        }
+
+
+        <span class="rem">//--------------------------------------------------------------------------</span>
+        <span class="rem">//</span>
+        <span class="rem">//  Methods</span>
+        <span class="rem">//</span>
+        <span class="rem">//--------------------------------------------------------------------------</span>
+
+        <span class="rem">/**</span>
+<span class="rem">         *  @override</span>
+<span class="rem">         *  </span>
+<span class="rem">         *  Overriding the handleMessage method to respond to the</span>
+<span class="rem">         *  editInExcel message.</span>
+<span class="rem">         */</span>
+        <span class="kwrd">public</span> <span class="kwrd">override</span> <span class="kwrd">void</span> HandleMessage(IMessage message)
+        {
+            <span class="kwrd">if</span> (ExcelMessage.EDIT_IN_EXCEL == message.type)
+            {
+                ExcelMessage excelMessage = (ExcelMessage)message;
+
+                <span class="rem">//  Note: Excel rows/cols start at 1 not 0</span>
+                <span class="kwrd">int</span> rowIdx = 1;
+                <span class="kwrd">int</span> colIdx = 1;
+                
+                <span class="rem">//  Iterate the data set from Flex</span>
+                <span class="kwrd">foreach</span> (<span class="kwrd">object</span>[] arr <span class="kwrd">in</span> excelMessage.cellData)
+                {
+                    <span class="rem">//  Start inserting at the first col for each value</span>
+                    colIdx = 1;
+                    <span class="kwrd">foreach</span> (Object val <span class="kwrd">in</span> arr)
+                    {
+                        ExcelProxy.SetCell(rowIdx, colIdx, val.ToString());
+                        colIdx++;
+                    }
+                    rowIdx++;
+                }
+
+                ExcelProxy.SetExcelVis(<span class="kwrd">true</span>);
+            }
+        }
+    }
+}
+</pre>
+</body>
+</html>

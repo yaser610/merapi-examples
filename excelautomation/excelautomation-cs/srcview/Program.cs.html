@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="css/csharp.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Program.cs</title>
+</head>
+
+<body>
+
+<!-- code formatted by http://manoli.net/csharpformat/ -->
+<pre class="csharpcode">
+<span class="rem">////////////////////////////////////////////////////////////////////////////////////</span>
+<span class="rem">//</span>
+<span class="rem">//  This program is free software; you can redistribute it and/or modify </span>
+<span class="rem">//  it under the terms of the GNU Lesser General Public License as published </span>
+<span class="rem">//  by the Free Software Foundation; either version 3 of the License, or (at </span>
+<span class="rem">//  your option) any later version.</span>
+<span class="rem">//</span>
+<span class="rem">//  This program is distributed in the hope that it will be useful, but </span>
+<span class="rem">//  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY </span>
+<span class="rem">//  or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public </span>
+<span class="rem">//  License for more details.</span>
+<span class="rem">//</span>
+<span class="rem">//  You should have received a copy of the GNU Lesser General Public License </span>
+<span class="rem">//  along with this program; if not, see &lt;http://www.gnu.org/copyleft/lesser.html&gt;.</span>
+<span class="rem">//</span>
+<span class="rem">////////////////////////////////////////////////////////////////////////////////////</span>
+
+<span class="kwrd">using</span> Merapi;
+<span class="kwrd">using</span> merapi.examples.excel;
+<span class="kwrd">using</span> merapi.example.excel.handlers;
+<span class="kwrd">using</span> System;
+
+<span class="kwrd">namespace</span> ExcelTest
+{
+    <span class="rem">/**</span>
+<span class="rem">     *  The main program for the Excel Automation Proxy</span>
+<span class="rem">     *  </span>
+<span class="rem">     *  @author Adam Flater</span>
+<span class="rem">     */</span>
+    <span class="kwrd">class</span> Program
+    {
+        <span class="kwrd">static</span> <span class="kwrd">void</span> Main(<span class="kwrd">string</span>[] args)
+        {
+            Bridge.Open();
+            <span class="kwrd">new</span> ExcelMessageHandler();
+            Console.ReadLine();
+        }
+    }
+}
+</pre>
+
+
+</body>
+</html>
