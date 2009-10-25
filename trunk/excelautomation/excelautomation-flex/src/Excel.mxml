@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	 ////////////////////////////////////////////////////////////////////////////////
+	 //
+	 //  This program is free software; you can redistribute it and/or modify
+	 //  it under the terms of the GNU General Public License as published by the
+	 //  Free Software Foundation; either version 3 of the License, or (at your
+	 //  option) any later version.
+	 //
+	 //  This program is distributed in the hope that it will be useful, but
+	 //  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+	 //  or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+	 //  for more details.
+	 //
+	 //  You should have received a copy of the GNU General Public License along
+	 //  with this program; if not, see <http://www.gnu.org/licenses>.
+	 //
+	 ////////////////////////////////////////////////////////////////////////////////
+-->
+
+<!--
+	 Excel is an example of using the Microsoft Excel Automation API
+
+	 @author Adam Flater
+-->
+<s:Application height="100%" width="100%"
+			   xmlns:fx="http://ns.adobe.com/mxml/2009"
+			   xmlns:merapi="http://merapi.googlecode.com"
+			   xmlns:messages="merapi.examples.excel.messages.*"
+			   xmlns:mx="library://ns.adobe.com/flex/halo"
+			   xmlns:s="library://ns.adobe.com/flex/spark">
+	<fx:Script>
+		<![CDATA[
+			import mx.rpc.events.ResultEvent;
+
+			//--------------------------------------------------------------------------
+			//
+			//  Properties
+			//
+			//--------------------------------------------------------------------------
+
+			[Bindable]
+			/**
+			 *  @protected
+			 *
+			 *  The data provider for the grid.
+			 */
+			protected var dataProvider:Array = [[1, 2, 3], [4, 5, 6], [7,
+					8, 9]];
+
+
+			//--------------------------------------------------------------------------
+			//
+			//  Methods
+			//
+			//--------------------------------------------------------------------------
+
+			/**
+			 *  @protected
+			 *
+			 *  Event handler; responds to cell update messages
+			 */
+			protected function cellChangeHandler_resultHandler(event:ResultEvent):void
+			{
+				var excelMessage:ExcelMessage = event.result as ExcelMessage;
+
+				var arr:Array = dataProvider;
+
+				if (arr[excelMessage.row - 1] == null)
+					arr[excelMessage.row - 1] = [];
+
+				arr[excelMessage.row - 1][excelMessage.col - 1] = excelMessage.
+						val;
+
+				var colLengthMax:int = 0;
+
+				for (var rowIdx:int = 0; rowIdx < arr.length; rowIdx++)
+				{
+					if (arr[rowIdx] != null)
+					{
+						colLengthMax = Math.max(colLengthMax, arr[rowIdx].
+								length);
+					}
+				}
+
+				for (rowIdx = 0; rowIdx < arr.length; rowIdx++)
+				{
+					if (arr[rowIdx] == null)
+						arr[rowIdx] = [];
+
+					for (var colIdx:int = 0; colIdx < colLengthMax; colIdx++)
+					{
+						if (arr[rowIdx][colIdx] == null)
+							arr[rowIdx][colIdx] = "";
+					}
+				}
+
+				dataProvider = arr.concat();
+			}
+
+			/**
+			 *  @protected
+			 *
+			 *  Event handler; responds to the click event from the
+			 *  edit button
+			 */
+			protected function button1_clickHandler(event:MouseEvent):void
+			{
+				var arr:Array = dataProvider.concat();
+				var cellData:Array = [];
+				var newRow:Array = [];
+				var colLengthMax:int = 0;
+
+				for (var rowIdx:int = 0; rowIdx < arr.length; rowIdx++)
+				{
+					newRow = [];
+					cellData.push(newRow);
+
+					for (var colIdx:int = 0; colIdx < arr[rowIdx].length; colIdx++)
+					{
+						newRow.push(arr[rowIdx][colIdx]);
+					}
+				}
+
+				editInExcelMessage.cellData = cellData;
+				editInExcelMessage.send();
+			}
+		]]>
+	</fx:Script>
+
+	<fx:Declarations>
+		<!--
+			 editInExcelMessage : Used to send request to .NET to open and
+			 load data in Excel
+		-->
+		<messages:ExcelMessage id="editInExcelMessage"
+							   type="{ ExcelMessage.EDIT_IN_EXCEL }" />
+
+		<!--
+			 cellChangeHandler : Responds to cell update messages
+		-->
+		<merapi:MessageHandler id="cellChangeHandler"
+							   result="cellChangeHandler_resultHandler(event)"
+							   type="{ ExcelMessage.CELL_UPDATE }" />
+	</fx:Declarations>
+
+	<s:layout>
+		<s:VerticalLayout />
+	</s:layout>
+
+	<!--
+		 dataGrid : Displays a data set that is sync'd with Excel
+	-->
+	<mx:DataGrid id="dataGrid"
+				 height="100%" width="100%"
+				 dataProvider="{ dataProvider }" />
+
+	<!--
+		 Used to signal an edit request.
+	-->
+	<s:Button click="button1_clickHandler(event)"
+			  label="Edit" />
+</s:Application>
