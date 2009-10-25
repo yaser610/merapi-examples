@@ -1,0 +1,12 @@
+C:\Documents and Settings\Administrator\workspace\Excel-CS\Excel-CS\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\workspace\Excel-CS\Excel-CS\obj\Debug\Excel-CS.csproj.ResolveComReference.cache
+C:\Documents and Settings\Administrator\workspace\Excel-CS\Excel-CS\bin\Debug\Excel-CS.exe
+C:\Documents and Settings\Administrator\workspace\Excel-CS\Excel-CS\bin\Debug\Excel-CS.pdb
+C:\Documents and Settings\Administrator\workspace\Excel-CS\Excel-CS\bin\Debug\FluorineFx.dll
+C:\Documents and Settings\Administrator\workspace\Excel-CS\Excel-CS\bin\Debug\log4net.dll
+C:\Documents and Settings\Administrator\workspace\Excel-CS\Excel-CS\bin\Debug\merapi-core-cs.dll
+C:\Documents and Settings\Administrator\workspace\Excel-CS\Excel-CS\obj\Debug\Excel-CS.exe
+C:\Documents and Settings\Administrator\workspace\Excel-CS\Excel-CS\obj\Debug\Excel-CS.pdb
+C:\Documents and Settings\Administrator\workspace\merapi-examples\excelautomation\excelautomation-cs\Excel-CS\obj\Debug\Excel-CS.csproj.ResolveComReference.cache
+C:\Documents and Settings\Administrator\workspace\merapi-examples\excelautomation\excelautomation-cs\Excel-CS\obj\Debug\Excel-CS.exe
+C:\Documents and Settings\Administrator\workspace\merapi-examples\excelautomation\excelautomation-cs\Excel-CS\obj\Debug\Excel-CS.pdb
