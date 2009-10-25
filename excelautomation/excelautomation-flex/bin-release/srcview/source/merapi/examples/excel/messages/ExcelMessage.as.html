@@ -1,0 +1,84 @@
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>ExcelMessage.as</title>
+<link rel="stylesheet" type="text/css" href="../../../../../SourceStyles.css"/>
+</head>
+
+<body><pre><span class="ActionScriptComment">////////////////////////////////////////////////////////////////////////////////////
+</span><span class="ActionScriptComment">//
+</span><span class="ActionScriptComment">//  This program is free software; you can redistribute it and/or modify 
+</span><span class="ActionScriptComment">//  it under the terms of the GNU Lesser General Public License as published 
+</span><span class="ActionScriptComment">//  by the Free Software Foundation; either version 3 of the License, or (at 
+</span><span class="ActionScriptComment">//  your option) any later version.
+</span><span class="ActionScriptComment">//
+</span><span class="ActionScriptComment">//  This program is distributed in the hope that it will be useful, but 
+</span><span class="ActionScriptComment">//  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
+</span><span class="ActionScriptComment">//  or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public 
+</span><span class="ActionScriptComment">//  License for more details.
+</span><span class="ActionScriptComment">//
+</span><span class="ActionScriptComment">//  You should have received a copy of the GNU Lesser General Public License 
+</span><span class="ActionScriptComment">//  along with this program; if not, see &lt;http://www.gnu.org/copyleft/lesser.html&gt;.
+</span><span class="ActionScriptComment">//
+</span><span class="ActionScriptComment">////////////////////////////////////////////////////////////////////////////////////
+</span>
+<span class="ActionScriptpackage">package</span> <span class="ActionScriptDefault_Text">merapi</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">examples</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">excel</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">messages</span>
+<span class="ActionScriptBracket/Brace">{</span>
+    <span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">merapi</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">messages</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">Message</span>;
+
+    <span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptMetadata">RemoteClass</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptString">"merapi.examples.excel.messages.ExcelMessage"</span><span class="ActionScriptBracket/Brace">)</span><span class="ActionScriptBracket/Brace">]</span>
+    <span class="ActionScriptASDoc">/**
+     *  The ExcelMessage provides notifications about udpates from Excel
+     *  or requests to Excel via Flex.
+     *
+     *  @author Adam Flater
+     */</span>
+    <span class="ActionScriptReserved">public</span> <span class="ActionScriptclass">class</span> <span class="ActionScriptDefault_Text">ExcelMessage</span> <span class="ActionScriptReserved">extends</span> <span class="ActionScriptDefault_Text">Message</span>
+    <span class="ActionScriptBracket/Brace">{</span>
+        <span class="ActionScriptComment">//--------------------------------------------------------------------------
+</span>        <span class="ActionScriptComment">//
+</span>        <span class="ActionScriptComment">//  Constants
+</span>        <span class="ActionScriptComment">//
+</span>        <span class="ActionScriptComment">//--------------------------------------------------------------------------
+</span>
+        <span class="ActionScriptASDoc">/**
+         *  The cell update type notifies when a cell's value has changed.
+         */</span>
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptReserved">static</span> <span class="ActionScriptReserved">const</span> <span class="ActionScriptDefault_Text">CELL_UPDATE</span>:<span class="ActionScriptDefault_Text">String</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptString">"cellUpdate"</span>;
+
+        <span class="ActionScriptASDoc">/**
+         *  The edit in Excel type notifies the excel app to edit the contents
+         *  of a DataGrid in Excel.
+         */</span>
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptReserved">static</span> <span class="ActionScriptReserved">const</span> <span class="ActionScriptDefault_Text">EDIT_IN_EXCEL</span>:<span class="ActionScriptDefault_Text">String</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptString">"editInExcel"</span>;
+
+        <span class="ActionScriptComment">//--------------------------------------------------------------------------
+</span>        <span class="ActionScriptComment">//
+</span>        <span class="ActionScriptComment">//  Properties
+</span>        <span class="ActionScriptComment">//
+</span>        <span class="ActionScriptComment">//--------------------------------------------------------------------------
+</span>
+        <span class="ActionScriptASDoc">/**
+         *  A set of cell data to edit in Excel.
+         */</span>
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">cellData</span>:<span class="ActionScriptDefault_Text">Array</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">null</span>;
+
+        <span class="ActionScriptASDoc">/**
+         *  The row of the cell that was updated.
+         */</span>
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">row</span>:<span class="ActionScriptDefault_Text">int</span> <span class="ActionScriptOperator">=</span> -1;
+
+        <span class="ActionScriptASDoc">/**
+         *  The column of the cell that was updated.
+         */</span>
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">col</span>:<span class="ActionScriptDefault_Text">int</span> <span class="ActionScriptOperator">=</span> -1;
+
+        <span class="ActionScriptASDoc">/**
+         *  The value of the cell that was updated.
+         */</span>
+        <span class="ActionScriptReserved">public</span> <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">val</span>:<span class="ActionScriptDefault_Text">Object</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">null</span>;
+    <span class="ActionScriptBracket/Brace">}</span>
+<span class="ActionScriptBracket/Brace">}</span></pre></body>
+</html>
